@@ -1,6 +1,6 @@
 import type { Todo } from '../types/todo'
 
-type TodoItemProps = {
+interface TodoItemProps {
     todo: Todo
     onToggle: (todo: Todo) => void
     onDelete: (id: number) => void
