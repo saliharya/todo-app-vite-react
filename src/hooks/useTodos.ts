@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Todo } from "../types/todo";
-import { createTodo, getTodos, updateTodo } from "../api/todoApi";
+import { createTodo, getTodos, updateTodo, deleteTodo as apiDeleteTodo } from "../api/todoApi";
 
 export function useTodos() {
     const [todos, setTodos] = useState<Todo[]>([])
@@ -29,10 +29,19 @@ export function useTodos() {
         setTodos((prev) =>
             prev.map((t) => (t.id === todo.id ? response.data : t))
         );
-    };
+    }
 
     const deleteTodo = async (id: number) => {
-        await updateTodo(id, { completed: true });
+        await apiDeleteTodo(id);
         setTodos((prev) => prev.filter((todo) => todo.id !== id));
+    }
+
+    return {
+        todos,
+        loading,
+        fetchTodos,
+        addTodo,
+        toggleTodo,
+        deleteTodo,
     }
 }
