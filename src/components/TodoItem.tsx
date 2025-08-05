@@ -9,6 +9,7 @@ interface TodoItemProps {
 }
 
 export default function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemProps) {
+
     return (
         <div className='flex items-center justify-between border-b py-2'>
             <div className="flex items-center gap-3">
@@ -19,7 +20,8 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemP
                     className="w-5 h-5 accent-violet-500 dark:accent-themeBlue border-gray-400 dark:border-themeBlack"
                 />
 
-                <span className={`text-lg ${todo.completed ? 'line-through text-gray-400' : 'font-bold'}`}>
+                <span
+                    className={`text-lg ${todo.completed ? 'line-through text-gray-400' : 'font-bold'}`}>
                     {todo.title}
                 </span>
             </div>

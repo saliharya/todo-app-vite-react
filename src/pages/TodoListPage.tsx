@@ -1,6 +1,5 @@
 import TodoItem from "../components/TodoItem";
 import { useTodos } from "../hooks/useTodos";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SearchBar from "../components/SearchBar";
 import FilterDropdown from "../components/FilterDropdown";
