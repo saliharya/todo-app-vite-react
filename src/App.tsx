@@ -1,15 +1,11 @@
-import './App.css'
-import { Outlet } from 'react-router-dom'
+import { Outlet } from "react-router-dom";
 
 function App() {
-
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
-      <div className="max-w-3xl mx-auto bg-white shadow rounded p-6">
-        <Outlet />
-      </div>
+    <div className="min-h-screen bg-white dark:bg-themeBlack text-black dark:text-themeWhite transition-colors duration-300">
+      <Outlet />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -36,6 +36,13 @@ export function useTodos() {
         setTodos((prev) => prev.filter((todo) => todo.id !== id));
     }
 
+    const editTodo = async (id: number, data: Partial<Todo>) => {
+        const response = await updateTodo(id, data);
+        setTodos((prev) =>
+            prev.map((t) => (t.id === id ? response.data : t))
+        );
+    };
+
     return {
         todos,
         loading,
@@ -43,5 +50,6 @@ export function useTodos() {
         addTodo,
         toggleTodo,
         deleteTodo,
+        editTodo
     }
 }
